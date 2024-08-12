@@ -1,0 +1,106 @@
+.feed-card{
+    position: relative;
+    width: 310px;
+    height: 250px;
+}
+
+.video-card__wrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.video-card__wrap .video-card-picture{
+    width: 310px;
+    height: 175px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.video-card__wrap .video-card-picture img{
+    width: 100%;
+}
+
+.video-card-info--title{
+    height: 44px;
+}
+
+.video-card-info--title h3 a{
+    color: black;
+    font-size: 15px;
+    line-height: 22px;;
+    font-weight: 500;
+}
+
+.video-card-info{
+    margin-top: 10px;
+}
+
+.video-card-info--bottom{
+    margin-top: 4px;
+}
+
+.video-card-info--owner{
+    font-size: 13px;
+    font-weight: 400;
+    font-style: normal;
+    color:#9499a0;
+}
+
+.video-card__skeleton--cover{
+    width: 310px;
+    height: 175px;
+    border-radius: 6px;
+}
+
+.video-card__skeleton--info{
+    margin-top: 12px;
+    height: 65px;
+}
+
+.video-card__skeleton--text{
+    margin-bottom: 4px;
+    width: 91%;
+    height: 18px;
+    border-radius: 4px;
+    animation-delay: .05s;
+}
+
+.video-card__skeleton--text.short{
+    width: 70%;
+}
+.video-card__skeleton--light{
+    margin-top: 6px;
+    width: 50%;
+    height: 18px;
+    border-radius: 4px;
+}
+
+.feed-card .video-card__skeleton--cover,
+.feed-card .video-card__skeleton--text,
+.feed-card .video-card__skeleton--light {
+    background-color: #f1f2f3;
+    background: linear-gradient(
+    100deg,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, .5) 45%,
+    rgba(255, 255, 255, 0) 65%
+    ) #f1f2f3;
+    background-size: 400% 100%;
+    background-position-x: 100%;
+    animation: 1s loading ease-in-out infinite;
+}
+
+.video-card__skeleton.hide {
+    visibility: hidden;
+}
+
+@keyframes loading{
+    0% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}

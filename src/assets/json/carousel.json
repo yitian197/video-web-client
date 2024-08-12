@@ -1,0 +1,38 @@
+[
+    {
+        "url": "http://localhost:5050/upload/carousel/1.avif",
+        "title": "正在直播全球冠军赛：EDG vs G2！",
+        "color": "#000064",
+        "target": "/video/28"
+    },
+    {
+        "url": "http://localhost:5050/upload/carousel/2.avif",
+        "title": "你好，我是艾梅莉埃。",
+        "color": "#8B8972",
+        "target": "/video/16"
+    },
+    {
+        "url": "http://localhost:5050/upload/carousel/3.avif",
+        "title": "浪漫七夕节 相约仙女湖",
+        "color": "#562F41",
+        "target": "/video/5"
+    },
+    {
+        "url": "http://localhost:5050/upload/carousel/4.avif",
+        "title": "久等啦！且看铃儿钰袖携手共赴风雨！",
+        "color": "#938460",
+        "target": "/video/6"
+    },
+    {
+        "url": "http://localhost:5050/upload/carousel/5.avif",
+        "title": "晚安，我的大小姐",
+        "color": "#203961",
+        "target": "/video/20"
+    },
+    {
+        "url": "http://localhost:5050/upload/carousel/6.avif",
+        "title": "呆贼为爱成骑士？！",
+        "color": "#48210F",
+        "target": "/video/25"
+    }
+]

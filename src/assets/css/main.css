@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: normal
+    }
+html{
+        font-size:12px;
+    }
+
+body {
+    /* font-family: 'Harmony Font'; */
+    font-size: 14px;
+    background-color: #fafafa;
+    min-width: 1090px;
+    line-height: 1.25;
+    }
+
+em,i {
+        font-style: normal
+    }
+ul {
+        list-style: none
+    }
+li {
+        list-style: none;
+    }
+a {
+        text-decoration: none
+    }
