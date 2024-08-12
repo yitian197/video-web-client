@@ -52,7 +52,7 @@ export default {
           localStorage.setItem('userToken', response.data.token);
           console.log(this.isLogin ? '登录成功！' : '注册成功！');
 
-          const userInfoResponse = await axios.get('http://127.0.0.1:5050/userinfo', {
+          const userInfoResponse = await axios.get('http://127.0.0.1:5050/user/userinfo', {
             headers: {
               Authorization: `Bearer ${response.data.token}`,
             },

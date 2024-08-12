@@ -18,6 +18,8 @@ import videoUpload from "@/view/Platform/children/uploadChildren/videoUpload.vue
 import textUpload from "@/view/Platform/children/uploadChildren/textUpload.vue";
 import VideoDetail from "@/view/videoDetail.vue";
 import spaceView from "@/view/space/spaceView.vue";
+import spaceHome from "@/view/space/children/spaceHome.vue";
+import spaceDynamic from "@/view/space/children/spaceDynamic.vue";
 
 const router = createRouter({
     history:createWebHistory(),
@@ -60,7 +62,15 @@ const router = createRouter({
             redirect:'/home'
         },
         { path: '/video/:vid', component: VideoDetail, meta: { requestAuth: false } },
-        {path:'/space',component:spaceView, meta: { requestAuth: false } },
+        {
+            path: '/space',
+            component:spaceView, 
+            meta: { requestAuth: false } ,
+            children: [
+                { path:'/space/:uid', meta:{ requestAuth: false } , component: spaceHome },
+                { path: '/space/:uid/dynamic', meta:{ requestAuth: false } , component: spaceDynamic},
+            ]
+        },
         {
             path:'/account',
             redirect: '/account/home',

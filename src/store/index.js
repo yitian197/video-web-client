@@ -28,7 +28,7 @@ export default createStore({
     async getuserinfo(context){
       console.log('获取用户信息')
       // 这里为了更方便捕捉到错误后做出反应，就不使用封装的函数了
-        const result = await axios.get("http://127.0.0.1:5050/userinfo", {
+        const result = await axios.get("http://127.0.0.1:5050/user/userinfo", {
           headers: {
               Authorization: "Bearer " + localStorage.getItem("userToken"),
           },
