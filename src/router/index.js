@@ -1,6 +1,6 @@
 import { createRouter ,createWebHistory} from "vue-router";
 
-import HelloWorld from "@/view/HelloWorld.vue";
+import IndexPage from "@/view/IndexPage.vue";
 import PageA from "@/view/PageA.vue";
 import SearchView from "@/view/search/SearchView.vue";
 import SearchUser from'@/view/search/children/SearchUser.vue';
@@ -20,13 +20,14 @@ import VideoDetail from "@/view/videoDetail.vue";
 import spaceView from "@/view/space/spaceView.vue";
 import spaceHome from "@/view/space/children/spaceHome.vue";
 import spaceDynamic from "@/view/space/children/spaceDynamic.vue";
+import player from "@/components/player.vue";
 
 const router = createRouter({
     history:createWebHistory(),
     routes:[
         {
-            path:'/home',
-            component:HelloWorld ,
+            path:'/',
+            component:IndexPage ,
             meta:{ requestAuth: false } ,
         },
         {
@@ -57,10 +58,7 @@ const router = createRouter({
                 
             ]
         },
-        {
-            path:'/',
-            redirect:'/home'
-        },
+        {path:'/player',component:player},
         { path: '/video/:vid', component: VideoDetail, meta: { requestAuth: false } },
         {
             path: '/space',

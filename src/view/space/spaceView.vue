@@ -28,26 +28,26 @@
                 <div class="wrapper">
                     <div class="n-inner">
                         <div class="n-tab-links">
-                            <a href="/space" class="n-btn n-index" :class="{'active': navIdx === 0 }" @click="clickNavItem('')" @mouseenter="hoverIdx = 0">                                
+                            <div class="n-btn n-index" :class="{'active': navIdx === 0 }" @click="changeNav('')"  @mouseenter="hoverIdx = 0">                                
                                 <span class="iconfont icon-zhuye"></span>
                                 <span class="n-text">主页</span>
-                            </a>
-                            <a href="/dynamic" class="n-btn n-dynamic" :class="{'active': navIdx === 1}" @click="clickNavItem('/dynamic')" @mouseenter="hoverIdx = 1">                                
+                            </div>
+                            <div class="n-btn n-dynamic" :class="{'active': navIdx === 1}" @click="changeNav('/dynamic')"  @mouseenter="hoverIdx = 1">                                
                                 <span class="iconfont icon-dongtai"></span>
                                 <span class="n-text">动态</span>
-                            </a>
-                            <a class="n-btn n-video" :class="{'active': navIdx === 2 }" @click="clickNavItem('/video')" @mouseenter="hoverIdx = 2">                                
+                            </div>
+                            <div class="n-btn n-video" :class="{'active': navIdx === 2 }" @click="changeNav('/video')"  @mouseenter="hoverIdx = 2">                                
                                 <span class="iconfont icon-tougao1"></span>
                                 <span class="n-text">投稿</span>
-                            </a>
-                            <a class="n-btn n-favlist" :class="{'active': navIdx === 4}" @click="clickNavItem('/favlist')" @mouseenter="hoverIdx = 4">                                
+                            </div>
+                            <div class="n-btn n-favlist" :class="{'active': navIdx === 4}" @click="changeNav('/favlist')"  @mouseenter="hoverIdx = 4">                                
                                 <span class="iconfont icon-shoucang1"></span>
                                 <span class="n-text">收藏</span>
-                            </a>
-                            <a class="n-btn n-setting" v-if="this.$store.state.user.uid === user.uid" :class="{'active': navIdx === 5}" @click="clickNavItem('/setting')" @mouseenter="hoverIdx = 5">                                
+                            </div>
+                            <div class="n-btn n-setting" v-if="this.$store.state.user.uid === user.uid" :class="{'active': navIdx === 5}" @click="changeNav('/setting')" @mouseenter="hoverIdx = 5">                                
                                 <span class="iconfont icon-shezhi"></span>
                                 <span class="n-text">设置</span>
-                            </a>
+                            </div>
                         </div>
                     </div>
                     <div class="n-cursor" :style="`width: ${barWidth}px; left: ${barLeft}px;`"></div>
@@ -87,8 +87,24 @@
                 // }
                 this.user = res.data;
             },
+            changeNav(path) {
+                const newPath = `/space/${this.$route.params.uid}${path}`;
+                if (this.$route.path === newPath) return;
+                this.$router.push(newPath);
+            },
         },
         computed:{
+            navIdx() {
+                const part = this.$route.path.split('/');
+                return !part[3] ? 0 :
+                        part[3] === '' ? 0 :
+                        part[3] === 'dynamic' ? 1 :
+                        part[3] === 'video' ? 2 :
+                        part[3] === 'article' ? 3 :
+                        part[3] === 'favlist' ? 4 :
+                        part[3] === 'setting' ? 5 :
+                        part[3] === 'fans' ? part[4] === 'follow' ? 6 : 7 : 0
+            }
         },
         async created() {
             if (this.$route.path === "/space" || this.$route.path === "/space/") {
@@ -121,6 +137,10 @@
 </script>
 
 <style scoped>
+.space>div{
+    background-color: #fafafa;
+}
+
 .wrapper{
     width: 1280px;
     margin: auto;
@@ -212,6 +232,10 @@
     vertical-align: middle;
 }
 
+.n .wrapper{
+    position: relative;
+}
+
 .n .n-inner{
     height: 66px;
     background: #fff;
@@ -224,6 +248,7 @@
     margin-right: 31px;
     line-height: 66px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .n .n-tab-links .iconfont {
@@ -252,5 +277,14 @@
 
 .n .n-tab-links .icon-shezhi {
     color: #23c9ed;
+}
+
+.n-cursor {
+    width: 10px;
+    height: 3px;
+    background-color: #00aeec;
+    transition: left 0.3s ease, width 0.3s ease; /* 平滑过渡效果 */
+    position: absolute;
+    bottom: -1px;
 }
 </style>

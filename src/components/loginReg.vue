@@ -37,7 +37,6 @@ export default {
       this.isLogin = !this.isLogin;
     },
     async handleSubmit() {
-      console.log('发送')
       try {
         const url = this.isLogin
           ? 'http://127.0.0.1:5050/api/login'
@@ -62,12 +61,11 @@ export default {
             this.$store.commit('setLoginStatus', true);
             this.$store.commit('updateUser', userInfoResponse.data.data);
             this.$emit("loginSuccess");
-            this.closeModal();
           } else {
             console.error('获取用户信息失败：', userInfoResponse.data.message || '未知错误');
           }
         } else {
-          console.error('操作失败：', response.data.message || '未知错误');
+          console.error( response.data || '未知错误');
         }
       } catch (error) {
         console.error('请求出错：', error);

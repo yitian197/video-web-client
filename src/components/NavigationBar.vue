@@ -134,7 +134,7 @@
           </div>
           <!-- 登录后 -->
           <div class="nav-avatar-wrap" v-else @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave">
-              <a href="" target="_blank" class="header-avatar-wrap-container mini-avatar-small">
+              <a :href="`/space/${user.uid}`" target="_blank" class="header-avatar-wrap-container mini-avatar-small">
                 <picture class="v-img">
                     <img :src="user.avatar_url" :alt="`头像`" />
                 </picture>
