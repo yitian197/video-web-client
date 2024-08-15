@@ -20,6 +20,12 @@ import VideoDetail from "@/view/videoDetail.vue";
 import spaceView from "@/view/space/spaceView.vue";
 import spaceHome from "@/view/space/children/spaceHome.vue";
 import spaceDynamic from "@/view/space/children/spaceDynamic.vue";
+import spaceVideo from "@/view/space/children/spaceVideo.vue"
+import spaceFavlist from "@/view/space/children/spaceFavlist"
+import spaceSetting from "@/view/space/children/spaceSetting"
+import spaceFansView from "@/view/space/children/spaceFansView.vue"
+import spaceFollow from "@/view/space/children/fansChildren/spaceFollow.vue"
+import spaceFans from "@/view/space/children/fansChildren/spaceFans.vue"
 import player from "@/components/player.vue";
 
 const router = createRouter({
@@ -67,6 +73,18 @@ const router = createRouter({
             children: [
                 { path:'/space/:uid', meta:{ requestAuth: false } , component: spaceHome },
                 { path: '/space/:uid/dynamic', meta:{ requestAuth: false } , component: spaceDynamic},
+                { path: '/space/:uid/video', meta:{ requestAuth: false } , component: spaceVideo},
+                { path: '/space/:uid/favlist', meta:{ requestAuth: false } , component: spaceFavlist},
+                { path: '/space/:uid/setting', meta:{ requestAuth: false } , component: spaceSetting},
+                {   
+                    path: '/space/:uid/fans',
+                    meta: { requestAuth: false }, 
+                    component: spaceFansView,
+                    children:[
+                        { path: '/space/:uid/fans/follow',meta: { requestAuth: false }, component: spaceFollow },
+                        { path: '/space/:uid/fans/fans',meta: { requestAuth: false }, component: spaceFans},
+                    ]
+                },
             ]
         },
         {

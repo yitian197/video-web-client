@@ -4,13 +4,13 @@
       <div :class="['nav-bar',{ 'slide-down': isSlidedown}]">
         <ul class="nav-left">  
           <div class="entry-title" v-if="size=='larger'&&!isSlidedown">
-            <a href="/home">
+            <a href="/">
               <i class="iconfont icon-xiaodianshi-line"></i>
               <span>首页</span>
             </a>
           </div>
           <div class="left-entry-title" v-else>
-            <a href="/home">
+            <a href="/">
               <i class="iconfont icon-bilibili"></i>
               <div>
                 <span>首页</span>

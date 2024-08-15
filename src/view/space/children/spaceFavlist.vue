@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        动态
+        收藏夹
     </div>
 </template>
 

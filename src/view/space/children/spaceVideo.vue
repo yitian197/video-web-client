@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper">
-        动态
+        投稿
     </div>
 </template>
 
